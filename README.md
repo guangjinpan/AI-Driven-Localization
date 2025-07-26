@@ -1,22 +1,21 @@
-# LWLM: Large Wireless Localization Model
+# Wireless Localization Model
 
-This repository contains the implementation of the paper:  **"AI-driven wireless positioning: Fundamentals, standards, state-of-the-art, and challenges"**  
+This repository contains the official implementation of the paper:  
+**"AI-driven Wireless Positioning: Fundamentals, Standards, State-of-the-Art, and Challenges"**
 
-It is an example for AI-driven positioning.
+It demonstrates example models for wireless positioning using AI techniques.
 
-Thank you very much for your feedback, it can effectively motivate me and help improve this project.
+We appreciate your feedback — it greatly motivates us and helps improve the project!
 
-
-
-![Pre-training framework](image.png)
 
 
 ## 🔧 How to Run
 
-### 🏋️‍♂️ Dataset
-Download dataset and put it in ./dataset
+### 📁 Dataset Preparation
 
-Run for data index generation
+1. Download the dataset and place it under the `./dataset` directory.
+2. Generate data index files using:
+
 ```bash
 python randidx.py
 ```
