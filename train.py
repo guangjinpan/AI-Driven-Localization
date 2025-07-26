@@ -40,35 +40,8 @@ parser.add_argument("--Dataset", type=str, default="MaMIMO")    # attenna number
 parser.add_argument("--input_subcarrier_dim", type=int, default=128)   # CSI  in subcarrier dimension
 parser.add_argument("--input_antenna_dim", type=int, default=32)   # CSI in antenna dimension
 parser.add_argument("--model", type=str, default="ResNet32")     # model type
-# parser.add_argument("--fshape", type=int, default=4)         # patch parametrs
-# parser.add_argument("--tshape", type=int, default=4)         # patch parametrs
-# parser.add_argument("--fstride", type=int, default=4)        # patch parametrs
-# parser.add_argument("--tstride", type=int, default=4)        # patch parametrs
-# parser.add_argument("--task", type=str, default='SingleBSLoc')
 parser.add_argument("--model_path", type=str, default='./model/')
-# parser.add_argument("--load_pretrained_mdl_path", type=str, default='./pretrained_model/pretrain_mix/testepoch=200.ckpt')
-# parser.add_argument("--pretrain_stage", type=bool, default=True)
-# parser.add_argument("--embed_dim", type=int, default=256)
-# parser.add_argument("--DTI_embed_dim", type=int, default=96)
-# parser.add_argument("--AFMCM_embed_dim", type=int, default=96)
-# parser.add_argument("--PICL_embed_dim", type=int, default=64)
-
-# parser.add_argument("--depth", type=int, default=4)            # transformer parametrs
-# parser.add_argument("--latent_dim", type=int, default=128)     # transformer parametrs 
-# parser.add_argument("--num_heads", type=int, default=4)        # transformer parametrs 
 parser.add_argument("--lr", type=float, default=1e-4)
-# parser.add_argument("--mask_antenna_number", type=int, default=16)
-# parser.add_argument("--mask_subcarrier_number", type=int, default=64)
-# parser.add_argument("--is_frozen", type=int, default=1)
-# parser.add_argument("--BW", type=int, default=10)
-# parser.add_argument("--DTI_flag", type=int, default=1)
-# parser.add_argument("--AFMCM_flag", type=int, default=1)
-# parser.add_argument("--PICL_flag", type=int, default=1)
-# parser.add_argument("--FT_dataset", type=int, default=10000)
-# parser.add_argument("--pilot_subcarrier_interval", type=int, default=1) # pilot interval: 1 means all channel are used as pilots
-# parser.add_argument("--pilot_antenna_interval", type=int, default=1)    # pilot interval: 1 means all channel are used as pilots
-# parser.add_argument("--BS_Num", type=int, default=4)
-# parser.add_argument("--is_load", type=int, default=0)
 args = parser.parse_args()
 
 
@@ -79,43 +52,12 @@ EnvPara = {
     "input_antenna_dim": args.input_antenna_dim,
     "Dataset": args.Dataset,
     "model": args.model,
-    # "input_tdim": args.input_tdim,
-    # "input_fdim": args.input_fdim,
-    # "input_fmap": args.input_fmap, 
-    # "fshape": args.fshape,
-    # "tshape": args.tshape,
-    # "fstride": args.fstride,
-    # "tstride": args.tstride,
-    # "task": args.task,
     "model_path": args.model_path,
-    # "load_pretrained_mdl_path": args.load_pretrained_mdl_path,
-    # "pretrain_stage": args.pretrain_stage,
     "device": torch.device("cuda" if torch.cuda.is_available() else "cpu"),
-    # "embed_dim": args.embed_dim,
-    # "depth": args.depth,
-    # "latent_dim": args.latent_dim,
-    # "num_heads": args.num_heads,
     "lr": args.lr,
-    # "mask_antenna_number": args.mask_antenna_number,
-    # "mask_subcarrier_number": args.mask_subcarrier_number,
-    # "is_frozen": args.is_frozen,
-    # "BW": args.BW,
-    # "DTI_embed_dim": args.DTI_embed_dim,
-    # "AFMCM_embed_dim": args.AFMCM_embed_dim,
-    # "PICL_embed_dim": args.PICL_embed_dim,
-    # "DTI_flag": args.DTI_flag,
-    # "AFMCM_flag": args.AFMCM_flag,
-    # "PICL_flag": args.PICL_flag,
-    # "FT_dataset": args.FT_dataset,
-    # "pilot_subcarrier_interval": args.pilot_subcarrier_interval,
-    # "pilot_antenna_interval": args.pilot_antenna_interval,
-    # "BS_Num": args.BS_Num,
-    # "is_load": args.is_load
 }
 
 
-# EnvPara["input_feature_dim"] = 2 *  EnvPara["BS_Num"]
-# print("EnvPara[input_feature_dim]",EnvPara["input_feature_dim"])
 
 # Set environment variable
 os.environ["HDF5_USE_FILE_LOCKING"] = "FALSE"
@@ -147,9 +89,6 @@ if __name__ == '__main__':
 
     FMmodel = Wrapper(EnvPara=EnvPara)
 
-    # if (EnvPara["model"] == "ResNet32"):
-    #     FMmodel = Wrapper.load_from_checkpoint(EnvPara["load_pretrained_mdl_path"], EnvPara=EnvPara, strict=False)
-    #     print("load:", EnvPara["load_pretrained_mdl_path"])
 
     FMmodel.to(EnvPara["device"])
 

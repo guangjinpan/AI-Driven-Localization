@@ -91,10 +91,7 @@ class generate_Dataset(Dataset):
     def __getitem__(self, idx):
         
 
-        # if self.EnvPara["Dataset"] == "MaMIMO":
-        #     channel_1 = self.data[idx,:,:]
-        # elif self.EnvPara["Dataset"] == "DeepMIMO_O1":
-        #     channel_1 = self.data[idx,:,:]
+
 
         channel_1 = self.data[idx,:,:]
         channel_1 = channel_normalization(channel_1)
@@ -153,11 +150,6 @@ class generate_Dataset_val(Dataset):
     
     def __getitem__(self, idx):
         
-
-        # if self.EnvPara["Dataset"] == "MaMIMO":
-        #     channel_1 = self.data[idx,:,:]
-        # elif self.EnvPara["Dataset"] == "DeepMIMO_O1":
-        #     channel_1 = self.data[idx,:,:]
 
         channel_1 = self.data[idx,:,:]
         channel_1 = channel_normalization(channel_1)
@@ -220,10 +212,7 @@ class generate_Dataset_test(Dataset):
     def __getitem__(self, idx):
         
 
-        # if self.EnvPara["Dataset"] == "MaMIMO":
-        #     channel_1 = self.data[idx,:,:]
-        # elif self.EnvPara["Dataset"] == "DeepMIMO_O1":
-        #     channel_1 = self.data[idx,:,:]
+
 
         channel_1 = self.data[idx,:,:]
         channel_1 = channel_normalization(channel_1)

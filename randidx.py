@@ -1,20 +1,20 @@
 import random
 import numpy as np
 
-# 随机采样
+# random sample 10000 numbers from 0 to 252003
 samples = random.sample(range(0, 252004), 10000)
-# 写入 txt 文件
+
 with open("./dataset/MaMIMO_train.txt", "w") as f:
     for number in samples[:7000]:
         f.write(f"{number}\n")
 
-# 写入 txt 文件
+
 with open("./dataset/MaMIMO_val.txt", "w") as f:
     for number in samples[7000:8000]:
         f.write(f"{number}\n")
 
 
-# 写入 txt 文件
+
 with open("./dataset/MaMIMO_test.txt", "w") as f:
     for number in samples[8000:10000]:
         f.write(f"{number}\n")

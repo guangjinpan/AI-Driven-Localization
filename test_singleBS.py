@@ -58,8 +58,6 @@ EnvPara = {
 }
 
 
-# EnvPara["input_feature_dim"] = 2 *  EnvPara["BS_Num"]
-# print("EnvPara[input_feature_dim]",EnvPara["input_feature_dim"])
 
 # Set environment variable
 os.environ["HDF5_USE_FILE_LOCKING"] = "FALSE"
